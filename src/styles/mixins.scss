@@ -1,0 +1,99 @@
+@import 'variables.scss';
+
+// 普通页面（默认页面），最小高度为100%, 超出100%自动滚动
+@mixin page {
+  page {
+    min-height: 100%;
+    display: flex;
+    &>view{
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+}
+// flex页面，高度为100%
+@mixin page-flex {
+  page {
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    &>view {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+  }
+}
+
+/* flex-center */
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 水平居中 */
+@mixin flex-center-x() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 垂直居中 */
+@mixin flex-center-y() {
+  display: flex;
+  align-items: center;
+}
+
+/* flex-between */
+@mixin flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-around() {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* ellipsis */
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* multi line ellipsis */
+@mixin multiline-ellipsis($num: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+@mixin circle($width) {
+  width: $width;
+  height: $width;
+  border-radius: 50%;
+
+  @include flex-center();
+}
+
+@mixin arrows($deg) {
+  @include flex-center();
+  &:before{
+    content: ' ';
+    height: 7px;
+    width: 7px;
+    border-width: 2px 2px 0 0;
+    border-color: $color-border;
+    border-style: solid;
+    transform: rotate($deg);
+  }
+}

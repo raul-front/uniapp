@@ -1,0 +1,94 @@
+/*
+ * @Descripttion: 重置样式
+ * @Author: pujianguo
+ * @Date: 2021-03-11 09:17:11
+ */
+@import 'mixins.scss';
+
+page {
+  background-color: $bg-color-page;
+  font-size: $font-size;
+  color: $text-color;
+}
+@include page();
+
+view,
+scroll-view,
+swiper,
+swiper-item,
+button,
+input,
+textarea,
+label,
+navigator,
+image {
+	box-sizing: border-box;
+}
+
+// switch，无法设置大小， 可用transform设置
+switch, checkbox, radio {
+  transform: scale(0.8);
+}
+
+/** *************** 重写primary按钮 *************** **/
+/** 重写默认按钮样式 **/
+button{
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  &::after{
+    border: none;
+  }
+}
+button[type="primary"] {
+	background-color: $color-primary;
+	color: #fff;
+}
+/** 鼠标按下 **/
+.button-hover[type="primary"]{
+  background-color: $color-primary-dark;
+	color: #fff;
+}
+button[loading][type=primary] {
+	// @include flex-center();
+	background-color: $color-primary-dark;
+}
+button[disabled][type=primary] {
+	background-color: $color-primary-light;
+}
+/** 镂空按钮 **/
+button[type="primary"][plain]{
+  background-color: transparent;
+  color: $color-primary;
+  border: 1upx solid $color-primary;
+}
+.button-hover[type="primary"][plain]{
+  color: $color-primary-light;
+  border: 1upx solid $color-primary-light;
+}
+button[size="small"]{
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+}
+button[size="mini"]{
+  height: 24px;
+  line-height: 24px;
+  font-size: 10px;
+}
+
+.iconfont{
+  display: inline-block;
+  font-size: 48upx;
+  @include flex-center();
+  &::before{
+    display: inline-block;
+  }
+}
+
+/** *************** 小程序组件默认class *************** **/
+.input-placeholder, .textarea-placeholder{
+  font-size: $font-size-sm;
+  color: $text-color-placeholder;
+}

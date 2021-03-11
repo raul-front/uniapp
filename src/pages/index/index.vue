@@ -23,7 +23,8 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+@import '~styles/mixins.scss';
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -44,8 +45,7 @@
 
 	.title {
 		font-size: 36rpx;
-		color: #8f8f94;
-		width: 700rpx;
+		color: $color-primary;
 		text-align: center;
 		display: block;
 	}

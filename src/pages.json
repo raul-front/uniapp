@@ -7,6 +7,16 @@
       }
     }
   ],
+  "subPackages": [
+    {
+      "root": "pagesA",
+      "pages": []
+    },
+    {
+      "root": "pagesB",
+      "pages": []
+    }
+  ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
