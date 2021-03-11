@@ -1,13 +1,18 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			uni.getSystemInfo({
+				success: res => {
+					let modelmes = res.model
+					if (modelmes.search('iPhone X') !== -1) {
+						this.$store.commit('common/setIPhoneX')
+					}
+				}
+			})
 		},
 		onShow: function() {
-			console.log('App Show')
 		},
 		onHide: function() {
-			console.log('App Hide')
 		}
 	}
 </script>

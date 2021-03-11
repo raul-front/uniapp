@@ -1,10 +1,10 @@
 <template>
-	<view>
-
+	<view :class="{'kg-iphonex-margin-bottom': isiPhoneX}">
 		<view class="content">
 			<image class="logo" src="/static/logo.png"></image>
 			<view>
 				<text class="title">{{title}}</text>
+				<text>{{isiPhoneX}}</text>
 			</view>
 		</view>
 	</view>
@@ -17,6 +17,11 @@
 			return {
 				title: 'Hello'
 			}
+		},
+		computed: {
+			isiPhoneX () {
+				return this.$store.state.common.isiPhoneX
+			},
 		},
 		onLoad() {
 
