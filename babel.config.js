@@ -31,8 +31,8 @@ if (
             return path.relative(input, file)
           }
           return false
-        }
-      }
+        },
+      },
     ])
   } catch (e) {}
 }
@@ -42,11 +42,11 @@ process.UNI_LIBRARIES.forEach(libraryName => {
   plugins.push([
     'import',
     {
-      'libraryName': libraryName,
-      'customName': (name) => {
+      libraryName: libraryName,
+      customName: (name) => {
         return `${libraryName}/lib/${name}/${name}`
-      }
-    }
+      },
+    },
   ])
 })
 module.exports = {
@@ -55,9 +55,9 @@ module.exports = {
       '@vue/app',
       {
         modules: 'commonjs',
-        useBuiltIns: process.env.UNI_PLATFORM === 'h5' ? 'usage' : 'entry'
-      }
-    ]
+        useBuiltIns: process.env.UNI_PLATFORM === 'h5' ? 'usage' : 'entry',
+      },
+    ],
   ],
-  plugins
+  plugins,
 }
