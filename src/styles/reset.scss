@@ -7,7 +7,7 @@
 
 page {
   background-color: $bg-color-page;
-  font-size: $font-size;
+  font-size: $font-size-md;
   color: $text-color;
 }
 @include page();

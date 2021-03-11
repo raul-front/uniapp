@@ -1,10 +1,14 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
+	<view>
+
+		<view class="content">
+			<image class="logo" src="/static/logo.png"></image>
+			<view>
+				<text class="title">{{title}}</text>
+			</view>
 		</view>
 	</view>
+
 </template>
 
 <script>
@@ -24,7 +28,6 @@
 </script>
 
 <style lang="scss">
-@import '~styles/mixins.scss';
 	.content {
 		display: flex;
 		flex-direction: column;

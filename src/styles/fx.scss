@@ -1,0 +1,1495 @@
+@import 'mixins.scss';
+
+/* *************** panel *************** */
+.fx-panel{
+  border-bottom: 1upx solid $color-border;
+  .fx-panel-hd{
+    padding: 15upx 20upx;
+    line-height: 2em;
+    display: flex;
+    align-items: center;
+    .fx-panel-hd-flag{
+      width: 8upx;
+      height: 32upx;
+      margin-right: 16upx;
+      background-color: $color-primary;
+      border-radius: 4upx;
+    }
+    .fx-panel-hd-title{
+      flex: 1;
+      .fx-panel-hd-title-text{
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 20upx;
+      }
+      .fx-panel-hd-title-desc{
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1.4;
+				font-size: $font-size-sm;
+			  color: $subtitle-color;
+      }
+    }
+    .fx-panel-hd-icon{
+    }
+  }
+  .fx-panel-bd{
+    .fx-panel-bd-empty{
+      padding: 20upx;
+      @include flex-center(column);
+      background-color: $bg-color;
+      .image{}
+      .text{
+        color: $subtitle-color;
+      }
+    }
+  }
+  .fx-panel-ft{
+    font-size: 30upx;
+		padding: 30upx 30upx;
+		background-color: $bg-color;
+    @include flex-between();
+    border-top: 1upx solid $color-border;
+		.fx-panel-ft-hd{
+		}
+		.fx-panel-ft-bd{
+		}
+		.fx-panel-ft-ft{
+		}
+  }
+}
+
+/*
+ * *************** lineinfo-box ***************
+ *  每行展示一条信息
+ *  默认cell-border
+*/
+.fx-lineinfo-box{
+  padding: 15upx 0 15upx 30upx;
+  background-color: $bg-color;
+  .fx-lineinfo-box-title{
+  }
+  .fx-lineinfo-box-cell{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $subtitle-color;
+    border-bottom: 1upx solid $color-border;
+    padding: 15upx 20upx 15upx 0;
+    .fx-lineinfo-box-cell-label{
+      margin-right: 10px;
+    }
+    .fx-lineinfo-box-cell-value{
+      color: $title-color;
+    }
+  }
+  .fx-lineinfo-box-cell__label{ // 只有标题
+    color: $subtitle-color;
+    padding: 15upx 20upx 15upx 0;
+    .fx-lineinfo-box-cell__label-title{
+      display: inline-block;
+      vertical-align: middle;
+      min-height: 2em;
+      line-height: 2em;
+      margin-right: 20upx;
+    }
+    .fx-lineinfo-box-cell__label-desc{
+      display: inline-block;
+      vertical-align: middle;
+      min-height: 1.4em;
+      line-height: 1.4em;
+      font-size: $font-size-sm;
+      color: $subtitle-color;
+    }
+  }
+  .fx-lineinfo-box-cell__image{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20upx;
+    border-bottom: 1upx solid $color-border;
+    .one-image-wrapper{ // TODO: 还没有使用过，待检验
+      @include flex-center(column);
+      margin-bottom: 10px;
+    }
+  }
+}
+// 取消cell border
+.fx-lineinfo-box_cell-no-border{
+  .fx-lineinfo-box-cell{
+    border-bottom: 0;
+  }
+}
+
+/*
+ * *************** info-box ***************
+ *  每行可展示两条信息
+*/
+.fx-info-box{
+  padding: 15upx 0 15upx 30upx;
+  background-color: $bg-color;
+  .fx-info-box-title{
+    @include flex-between();
+    padding-right: 20upx;
+  }
+  .fx-info-box-cell{
+    padding: 15upx 20upx 15upx 0;
+    display: flex;
+    .fx-info-box-cell-item{
+      flex: 1;
+      display: flex;
+      width: 50%;
+      .fx-info-box-cell-item-label{
+        margin-right: 10upx;
+        color: $subtitle-color;
+      }
+      .fx-info-box-cell-item-value{
+        flex: 1;
+        color: $title-color;
+      }
+      &:nth-child(1){
+        .fx-info-box-cell-item-label{
+          width: 140upx;
+        }
+      }
+      &:nth-child(2){
+        .fx-info-box-cell-item-label{
+          width: 170upx;
+        }
+      }
+    }
+  }
+  .fx-info-box-cell-all{
+    padding: 15upx 20upx 15upx 0;
+    display: flex;
+    .fx-info-box-cell-label{
+      width: 140upx;
+      margin-right: 10upx;
+      color: $subtitle-color;
+    }
+    .fx-info-box-cell-value{
+      flex: 1;
+      color: $title-color;
+    }
+    .fx-info-box-cell-icon{
+    }
+  }
+  .fx-info-box-cell__label{ // 只有标题
+    padding: 15upx 20upx 15upx 0;
+    color: $subtitle-color;
+    .fx-info-box-cell__label-title{
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 20upx;
+    }
+    .fx-info-box-cell__label-desc{
+      display: inline-block;
+      vertical-align: middle;
+      min-height: 1.4em;
+      line-height: 1.4em;
+      font-size: $font-size-sm;
+      color: $subtitle-color;
+    }
+  }
+  .fx-info-box-cell__image{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20upx;
+    .one-image-wrapper{ // TODO: 还没有使用过，待检验
+      @include flex-center(column);
+      margin-bottom: 10px;
+    }
+  }
+}
+// cell-all  value向右对齐
+.fx-info-box_value-right{
+  .fx-info-box-cell-all{
+    justify-content: space-between;
+    .fx-info-box-cell-label{
+      width: auto;
+    }
+    .fx-info-box-cell-value{
+      text-align: right;
+    }
+  }
+}
+// 默认没有 cell border，这里添加 cell border
+.fx-info-box_cell-border{
+  .fx-info-box-cell{
+    border-bottom: 1upx solid $color-border;
+  }
+  .fx-info-box-cell-all{
+    border-bottom: 1upx solid $color-border;
+  }
+}
+
+/*
+ * *************** form ***************
+ *
+*/
+.fx-form {
+  $line-height: 2em;
+  padding: 15upx 0 15upx 30upx;
+  .fx-form-title{
+  }
+  .fx-form-cell{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1upx solid $color-border;
+    padding: 20upx 20upx 20upx 0;
+    line-height: $line-height;
+    min-height: $line-height;
+    &:last-child{
+      border-bottom: 0;
+    }
+    .fx-form-cell-icon{
+      width: $line-height;
+      height: $line-height;
+      @include flex-center();
+      margin-right: 10px;
+      .iconfont{
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+        @include flex-center();
+      }
+    }
+    .fx-form-cell-label{
+      line-height: $line-height;
+      width: 180upx;
+      margin-right: 20upx;
+    }
+    .fx-form-cell-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      .fx-form-input {
+        min-height: $line-height;
+        line-height: $line-height;
+        flex: 1;
+        color: $title-color;
+      }
+      .fx-form-text{
+        min-height: $line-height;
+        line-height: $line-height;
+        flex: 1;
+        color: $subtitle-color;
+      }
+      .fx-form-textarea{
+        flex: 1;
+        width: auto;
+        box-sizing: border-box;
+        min-height: 3.4em;
+        padding: 0.3em 0;
+        line-height: 1.4em;
+        color: $title-color;
+      }
+      .fx-form-switch{
+        height: $line-height;
+      }
+      .fx-form-picker{
+        flex: 1;
+        color: $title-color;
+        .fx-form-picker-text{
+          position: relative;
+          padding-right: 30px;
+          min-height: $line-height;
+          line-height: $line-height;
+        }
+        .fx-form-picker-text:before{
+          content: " ";
+          display: inline-block;
+          height: 6px;
+          width: 6px;
+          border-width: 1px 1px 0 0;
+          border-color: $text-color-description;
+          border-style: solid;
+          transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+          position: relative;
+          top: -2px;
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          margin-top: -4px;
+        }
+      }
+      .fx-form-check-group{ // 包含radio, checkbox
+        min-height: $line-height;
+        line-height: $line-height;
+        flex: 1;
+        color: $title-color;
+        display: flex;
+        flex-wrap: wrap;
+        .fx-form-check-group-item{
+          margin-right: 20upx;
+          display: flex;
+          .fx-form-check-group-item-check{
+          }
+          .fx-form-check-group-item-label{
+          }
+        }
+      }
+    }
+    .fx-form-cell-item{
+      height: $line-height;
+      line-height: $line-height;
+      font-size: $font-size;
+    }
+    .fx-form-cell-unit{
+      width: 36px;
+      text-align: center;
+      margin-right: 0px;
+    }
+  }
+  // 有多行内容的行，如textarea,radio-group, checkbox
+  .fx-form-cell_label-top{
+    align-items: flex-start;
+    .fx-form-cell-content{
+      min-height: $line-height;
+    }
+  }
+  .fx-form-cell__label{ // 只有标题
+    color: $subtitle-color;
+    padding: 15upx 20upx 15upx 0;
+    line-height: $line-height;
+    min-height: $line-height;
+    .fx-form-cell__label-title{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .fx-form-cell__label-desc{
+      display: inline-block;
+      vertical-align: middle;
+      min-height: 1.4em;
+      line-height: 1.4em;
+      margin-left: 20upx;
+      font-size: $font-size-sm;
+      color: $text-color-description;
+    }
+  }
+  .fx-form-cell__image{
+    padding-bottom: 20upx;
+    padding-right: 20upx;
+    border-bottom: 1upx solid $color-border;
+  }
+
+  .fx-form-cell__obey{ // 服从条款勾选框
+    border-bottom: 1upx solid $color-border;
+    padding: 15upx 20upx 15upx 0;
+    label{
+      width: 100%;
+    }
+    switch{
+      display: inline-block;
+      vertical-align: middle;
+      line-height: $line-height;
+    }
+    .fx-form-cell__obey-title{
+      color: $color-primary;
+      vertical-align: middle;
+      display: inline-block;
+      min-height: $line-height;
+      line-height: $line-height;
+      margin-right: 20upx;
+    }
+    .fx-form-cell__obey-desc{
+      color: $subtitle-color;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1.4em;
+      font-size: $font-size-sm;
+    }
+  }
+
+  // 必选标识
+  .fx-form-cell_required {
+    position: relative;
+    &:before {
+      content: "*";
+      position: absolute;
+      left: -18upx;
+      margin-top: 5upx;
+      text-align: center;
+      color: $color-danger;
+    }
+  }
+}
+.fx-form_cell-no-border{
+  .fx-form-cell, .fx-form-cell__image{
+    border-bottom: 0;
+  }
+}
+// form value 向右对齐
+.fx-form_value-right{
+  .fx-form-cell{
+    .fx-form-cell-label{
+      width: auto;
+    }
+    .fx-form-cell-content{
+      .fx-form-picker{
+        text-align: right;
+      }
+      .fx-form-input, .fx-form-text, .fx-form-item, .fx-form-switch {
+        text-align: right;
+        margin-right: 12px;
+      }
+      .fx-form-radio-group{
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+
+// 底部按钮组
+.fx-footer-btn-wrapper{
+  box-sizing: border-box;
+  padding: 50upx 30upx;
+  width: 100%;
+  @include flex-center();
+	.fx-footer-btn {
+    flex: 1;
+		margin: 0 30upx;
+	}
+}
+
+.fx-btn-no-border{
+  border: none;
+  &::after{
+    border: none;
+  }
+}
+.fx-no-border{
+  border: 0 !important;
+}
+.fx-no-border-top{
+	border-top: 0 !important;
+}
+.fx-no-border-bottom{
+	border-bottom: 0 !important;
+}
+.fx-border-top{
+	border-top: 1upx solid $color-border !important;
+}
+.fx-border-bottom{
+	border-bottom: 1upx solid $color-border !important;
+}
+.fx-no-margin-top{
+  margin-top: 0 !important;
+}
+.fx-no-margin-bottom{
+  margin-bottom: 0 !important;
+}
+.fx-no-margin-left{
+  margin-left: 0 !important;
+}
+.fx-no-margin-right{
+  margin-right: 0 !important;
+}
+.fx-margin{
+  margin: 15upx !important;
+}
+.fx-margin-top{
+  margin-top: 15upx !important;
+}
+.fx-margin-left{
+  margin-left: 15upx !important;
+}
+.fx-margin-right{
+  margin-right: 15upx !important;
+}
+.fx-margin-bottom{
+  margin-bottom: 15upx !important;
+}
+.fx-margin-mini{
+  margin: 8upx;
+}
+.fx-margin-top-mini{
+  margin-top: 8upx !important;
+}
+.fx-margin-left-mini{
+  margin-left: 8upx !important;
+}
+.fx-margin-right-mini{
+  margin-right: 8upx !important;
+}
+.fx-margin-bottom-mini{
+  margin-bottom: 8upx !important;
+}
+.fx-no-padding-top{
+	padding-top: 0 !important;
+}
+.fx-no-padding-bottom{
+	padding-bottom: 0 !important;
+}
+.fx-padding-top{
+	padding-top: 15upx !important;
+}
+.fx-padding-bottom{
+	padding-bottom: 15upx !important;
+}
+
+.fx-text-danger{
+	color: $color-danger !important;
+}
+.fx-text-primary{
+	color: $color-primary !important;
+}
+.fx-text-title{
+	color: $title-color !important;
+}
+.fx-text-subtitle{
+	color: $subtitle-color !important;
+}
+.fx-text-description{
+  color: $text-color-description !important;
+  font-size: $font-size-sm;
+}
+.fx-text-ellipsis{
+  @include ellipsis();
+}
+.fx-text-ellipsis-2{
+  @include multiline-ellipsis();
+}
+.fx-text-ellipsis-3{
+  @include multiline-ellipsis(3);
+}
+.fx-text-ellipsis-4{
+  @include multiline-ellipsis(4);
+}
+.fx-width-auto {
+  width: auto !important;
+}
+.fx-bg-color{
+  background-color: $bg-color !important;
+}
+.fx-bg-transparent{
+  background-color: transparent !important;
+}
+.fx-bg-color-grey{
+  background-color: $bg-color-grey !important;
+}
+
+// 分割线
+.fx-line-divider{
+  height: 1upx;
+  width: 100%;
+  background-color: $color-border;
+}
+.fx-line-border{
+  height: 1upx;
+  width: 100%;
+  background-color: $color-border;
+}
+// 含有文字的分割线
+.fx-line-text{
+  position: relative;
+  @include flex-center();
+  &::before{
+    content: ' ';
+    height: 1upx;
+    background: $color-border;
+    flex: 1;
+  }
+  &::after{
+    content: ' ';
+    height: 1upx;
+    background: $color-border;
+    flex: 1;
+  }
+  text{
+    padding: 0 15upx;
+  }
+}
+
+// 用来设置cell-content有多个元素的问题
+// eg: 获取验证码的cell行中需要 添加验证码 的按钮
+.fx-flex-between{
+  @include flex-between();
+  .fx-flex-between-item{
+    width: auto !important;
+  }
+}
+
+// 设置label中有上下两部分
+.fx-flex-column-left{
+  @include flex-center(column);
+  align-items: flex-start;
+  .fx-flex-column-left-item{
+  }
+}
+
+// 标题
+.fx-title{
+  padding: 15upx 0;
+  display: flex;
+  @include flex-between();
+  color: $title-color;
+  .fx-title-left{
+    .fx-title-text{
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 20upx;
+    }
+    .fx-title-desc{
+      display: inline-block;
+      vertical-align: middle;
+      color: $subtitle-color;
+    }
+  }
+  .fx-title-right{
+    color: $subtitle-color;
+  }
+}
+
+// flex横向列表
+.fx-flex-list{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .fx-flex-list-item{
+    flex: 1;
+  }
+  .fx-flex-list-item__1{
+    width: 100%;
+  }
+  .fx-flex-list-item__2{
+    width: 50%;
+  }
+  .fx-flex-list-item__3{
+    width: 33%;
+  }
+  .fx-flex-list-item__4{
+    width: 25%;
+  }
+}
+.fx-flex-list_top{
+  align-items: flex-start;
+}
+.fx-flex-list_center{
+  justify-content: flex-start;
+}
+.fx-flex-list_right{
+  justify-content: flex-end;
+}
+
+.fx-flex-center-y{
+  display: flex;
+  align-items: center;
+}
+.fx-flex-center{
+  @include flex-center();
+  .fx-flex-center-item{
+    flex: 1;
+  }
+}
+.fx-flex-center__column{
+  @include flex-center(column);
+  .fx-flex-center__column-item{
+    flex: 1;
+  }
+}
+.fx-display-flex{
+  display: flex;
+}
+.fx-display-flex_column{
+  display: flex;
+  flex-direction: column;
+}
+.fx-flex-item{
+  flex: 1;
+}
+
+// 空盒子
+.fx-empty-wrapper{
+  @include flex-center();
+  padding: 50upx;
+  background: $bg-color;
+  color: $subtitle-color;
+}
+
+// 上传图片
+.fx-uploader-image{
+  display: flex;
+  flex-wrap: wrap;
+  &-item{
+    width: 160upx;
+    height: 160upx;
+    margin-right: 20upx;
+    margin-bottom: 20upx;
+    position: relative;
+    background-color: $bg-color-grey;
+    &:nth-child(4n+0){
+      margin-right: 0;
+    }
+    &-img{
+      width: 100%;
+      height: 100%;
+      border-radius: 16upx;
+    }
+    &-delete {
+      display: block;
+      font-size: 18px;
+      position: absolute;
+      right: -8px;
+      top: -8px;
+      color: $text-color-description;
+      background-color: $bg-color;
+      border-radius: 9px;
+    }
+  }
+  &-item_input{
+    @include flex-center();
+    border-radius: 16upx;
+    .iconfont{
+      color: $color-border;
+    }
+    &:active{
+      border-color: $color-border;
+      .iconfont{
+        font-weight: bold;
+      }
+    }
+  }
+  .fx-uploader-image_one-file-item{
+    @include flex-center(column);
+    margin-bottom: 20upx;
+    .fx-uploader-image-item{
+      margin-bottom: 10upx;
+    }
+    .fx-uploader-image_one-file-item-title{
+      width: 180upx;
+      padding: 0 30upx 10upx 10upx;
+      text-align: center;
+    }
+  }
+}
+
+// 整页选项卡
+.fx-tabbar-page{
+  .fx-tabbar-bar-scroll{
+    width: 100%;
+    height: 80upx;
+    background: $bg-color;
+    .fx-tabbar-bar-list{
+      height: 80upx;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .fx-tabbar-bar-item{
+        @include flex-center();
+        flex-wrap: nowrap;
+        height: 80upx;
+        margin-right: 60upx;
+        box-sizing: border-box;
+        border-bottom: 4upx solid transparent;
+        font-size: $font-size-x;
+        &:last-child{
+          margin-right: 0;
+        }
+        &-title{
+          white-space: nowrap;
+        }
+        &_active{
+          color: $color-primary;
+          border-bottom: 4upx solid $color-primary;
+        }
+      }
+    }
+  }
+
+  .fx-tabbar-swiper{
+    flex: 1;
+    display: flex;
+    .fx-tabbar-swiper-item{
+      flex: 1;
+      display: flex;
+      &-scroll{
+        flex: 1;
+        width: 100%;
+      }
+    }
+  }
+}
+// 占满
+.fx-tabbar-page_flex{
+  .fx-tabbar-bar-item{
+    flex: 1;
+  }
+}
+// 有下划线
+.fx-tabbar-page_bar-border{
+  .fx-tabbar-bar-list{
+    border-bottom: 1upx solid $color-border;
+  }
+}
+
+// 部分选项卡
+.fx-tabbar-box{
+  display: flex;
+  flex-direction: column;
+  .fx-tabbar-bar-scroll{
+    width: 100%;
+    height: 80upx;
+    background: $bg-color;
+    .fx-tabbar-bar-list{
+      height: 80upx;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      box-sizing: border-box;
+      .fx-tabbar-bar-item{
+        margin-right: 60upx;
+        box-sizing: border-box;
+        @include flex-center();
+        flex-wrap: nowrap;
+        border-bottom: 4upx solid transparent;
+        font-size: $font-size-x;
+        &:last-child{
+          margin-right: 0;
+        }
+        &-title{
+          white-space: nowrap;
+        }
+        &_active{
+          color: $color-primary;
+          border-bottom: 4upx solid $color-primary;
+        }
+      }
+    }
+  }
+
+  .fx-tabbar-swiper{
+    display: flex;
+    height: 500upx;
+    .fx-tabbar-swiper-item{
+      flex: 1;
+      background: $bg-color;
+      padding: 20upx 10upx;
+    }
+  }
+}
+// 占满
+.fx-tabbar-box_flex{
+  .fx-tabbar-bar-item{
+    flex: 1;
+  }
+}
+// 居中
+.fx-tabbar-box_center{
+  .fx-tabbar-bar-list{
+    justify-content: center;
+  }
+}
+// 有下划线
+.fx-tabbar-box_bar-border{
+  .fx-tabbar-bar-list{
+    border-bottom: 1upx solid $color-border;
+  }
+}
+
+// table
+.fx-table{
+  $table-border-color: $color-border;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .fx-table-content{
+    flex: 1;
+    display: flex;
+    border: 1upx solid $table-border-color;
+    border-right: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .fx-table-hd{
+    border-bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .fx-table-bd{
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    .fx-tr{
+      &:last-child{
+        border-bottom: 0;
+      }
+    }
+  }
+  .fx-empty-box{
+    border-right: 1upx solid $table-border-color;
+  }
+  .fx-table-ft{}
+  .fx-tr{
+    flex: 1;
+    display: flex;
+    box-sizing: border-box;
+    border-bottom: 1upx solid $table-border-color;
+    .fx-th, .fx-td{
+      flex: 1;
+      width: 1upx;
+      @include flex-center();
+      text-align: center;
+      border-right: 1upx solid $table-border-color;
+      padding: 5upx;
+      box-sizing: border-box;
+      white-space: wrap;
+      word-wrap : break-word;
+      overflow: hidden;
+    }
+    .fx-th{
+      color: $title-color;
+    }
+    .fx-td{
+      color: $subtitle-color;
+    }
+  }
+  // 多列表头
+  .fx-tr_mult{
+    .fx-th{
+      padding: 0 !important;
+      flex-direction: column !important;
+      border: 0;
+      .fx-th-tt{
+        flex: 1;
+        width: 100%;
+        border-bottom: 1upx solid $table-border-color;
+        border-right: 1upx solid $table-border-color;
+        padding: 10upx;
+        box-sizing: border-box;
+        @include flex-center();
+        &.no-mult{
+          border-bottom: 0;
+        }
+      }
+      .fx-th-tb{
+        width: 100%;
+        @include flex-center();
+        box-sizing: border-box;
+        .fx-th-tb-item{
+          padding: 5upx;
+          border-right: 1upx solid $table-border-color;
+          box-sizing: border-box;
+          @include flex-center();
+          flex: 1;
+        }
+      }
+    }
+  }
+}
+
+.fx-page{
+  @include flex-between();
+  margin: 15upx 0;
+  .fx-page-step{
+    @include flex-center();
+    border: 1upx solid $color-border;
+    padding: 5upx;
+    height: 50upx;
+    border-radius: 8upx;
+    &-prev{
+      padding-right: 15upx;
+    }
+    &-next{
+      padding-left: 15upx;
+    }
+    &:active{
+      color: $color-primary;
+    }
+    &_disabled{
+      color: $text-color-disabled !important;
+      border-color: $text-color-disabled !important;
+    }
+    .iconfont{
+      font-size: 36upx;
+    }
+  }
+  .fx-page-text{
+    @include flex-center();
+    padding: 0 20upx;
+    .current{
+      color: $color-primary;
+    }
+  }
+}
+
+// loading 需要父组件position: ralative
+.fx-loading-box{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background: $bg-color-mask;
+  @include flex-center(column);
+  color: $color-white;
+  .iconfont{
+    animation: fx-rotate 1.2s linear infinite;
+  }
+  .text{
+    margin-top: 20upx;
+  }
+}
+@keyframes fx-rotate{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+// empty
+.fx-empty-box{
+  padding: 30upx;
+  @include flex-center(column);
+  &-img{
+    width: 180upx;
+    height: 120upx;
+  }
+  &-text{
+    margin-top: 10px;
+    text-align: center;
+    color: $text-color-description;
+  }
+}
+
+// 下拉组件
+.fx-select{
+  padding: 5upx 0 5upx 20upx;
+  margin: 5upx;
+  border: 1upx solid $color-border;
+  border-radius: 8upx;
+  background: $bg-color;
+  max-width: 200upx;
+  .fx-select-text{
+    position: relative;
+    padding-right: 30px;
+    min-height: 50upx;
+    line-height: 50upx;
+    color: $color-primary;
+    @include ellipsis();
+  }
+  .fx-select-text:before{
+    content: " ";
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 1px 1px 0 0;
+    border-color: $text-color-description;
+    border-style: solid;
+    position: relative;
+    top: -3px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -4px;
+    transform: translate(2px, -2px) rotate(135deg);
+  }
+}
+
+.fx-collapse-box{
+  font-size: $font-size-x;
+  background-color: $bg-color;
+  .fx-collapse-item{}
+  .fx-collapse-cell{
+    min-height: 2em;
+    line-height: 2em;
+    padding-left: 30upx;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    .fx-cell-icon{
+      width: 18px;
+      height: 18px;
+      font-size: 18px;
+      margin-right: 10px;
+    }
+    .fx-cell-content{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      .fx-cell-content-bd{
+        flex: 1;
+        @include flex-between();
+        border-bottom: 1upx solid $color-border;
+        padding: 20upx 20upx 20upx 0;
+        overflow: hidden;
+        .fx-cell-content-bd-title{
+          color: $text-color-title;
+          margin-right: 20upx;
+          @include ellipsis();
+        }
+        .fx-cell-content-bd-desc{
+          flex: 1;
+          text-align: right;
+          color: $text-color-placeholder;
+          font-size: $font-size-sm;
+          @include ellipsis();
+        }
+      }
+      .fx-cell-content-open{
+        width: 2em;
+        height: 2em;
+        @include flex-center();
+        .iconfont{
+          width: 18px;
+          height: 18px;
+          font-size: 12px;
+          color: $text-color-description;
+          transition: all .3s;
+        }
+        .fx-icon-open{
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+  .fx-content-wrapper{
+    display: flex;
+    will-change: height;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    &.fx-content-wrapper-hidden{
+      height: 0px;
+    }
+  }
+  .fx-collapse-content{
+    width: 100%;
+  }
+}
+
+// cell
+.fx-cell-box{
+  .fx-cells-title{
+    color: $title-color;
+    line-height: 50upx;
+    padding-left: 20upx;
+  }
+  .fx-cells-title + .fx-cells{
+    margin-top: 0;
+  }
+
+  .fx-cells{
+    background: $bg-color;
+    margin-top: 20upx;
+    &:first-of-type{
+      margin-top: 0;
+    }
+    .fx-cell{
+      display: flex;
+      align-items: center;
+      min-height: 2em;
+      line-height: 2em;
+      padding-left: 30upx;
+      .fx-cell-icon{
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+        margin-right: 10px;
+      }
+      .fx-cell-image{
+        width: 2em;
+        height: 2em;
+        margin-right: 10px;
+      }
+      .fx-cell-content{
+        flex: 1;
+        @include flex-between();
+        border-bottom: 1upx solid $color-border;
+        padding: 20upx 20upx 20upx 0;
+        overflow: hidden;
+        &-hd{
+          width: 2em;
+          height: 2em;
+          margin-right: 20upx;
+        }
+        &-bd{
+          &-title{
+            line-height: 40upx;
+            padding-right: 40upx;
+          }
+          &-desc{
+            padding-right: 40upx;
+            color: $text-color-placeholder;
+            line-height: 30upx;
+            font-size: $font-size-sm;
+            margin-top: 8upx;
+          }
+        }
+        &-ft{
+          color: $text-color-placeholder;
+          font-size: $font-size-sm;
+          line-height: 1;
+        }
+      }
+      &_access{
+        .fx-cell-content{
+          position: relative;
+          padding-right: 60upx;
+          &:before{
+            content: " ";
+            display: inline-block;
+            top: 50%;
+            right: 15px;
+            height: 6px;
+            width: 6px;
+            border-width: 1px 1px 0 0;
+            border-color: $text-color-description;
+            border-style: solid;
+            position: absolute;
+            margin-top: -3px;
+            transform: rotate(45deg);
+          }
+        }
+      }
+      &:last-child{
+        .fx-cell-content{
+          border: 0;
+        }
+      }
+      &:active{
+        background: $bg-color-active;
+      }
+    }
+    .fx-cell_active{
+      background: $bg-color-active;
+    }
+    .fx-cell_flex-start{
+      align-items: flex-start;
+      .fx-cell-icon{
+        padding: 20upx 0;
+        font-size: inherit;
+        height: 2em;
+        box-sizing: content-box;
+        @include flex-center();
+        .iconfont{
+          width: 18px;
+          height: 18px;
+          font-size: 18px;
+        }
+      }
+      .fx-cell-content{
+        min-height: 2em;
+        box-sizing: content-box;
+        .fx-cell-content-bd{
+          @include flex-center();
+          padding-right: 40upx;
+          word-break: break-all;
+        }
+      }
+      .fx-cell-icon_access{
+        position: relative;
+        margin-right: 0;
+        &:before{
+          content: " ";
+          display: inline-block;
+          top: 50%;
+          right: 15px;
+          height: 6px;
+          width: 6px;
+          border-width: 1px 1px 0 0;
+          border-color: $text-color-description;
+          border-style: solid;
+          position: absolute;
+          margin-top: -3px;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+// 深色下划线（背景为page颜色时使用）
+.fx-cell-box_border-dark{
+  .fx-cell .fx-cell-content{
+    border-color: $color-border-dark !important;
+  }
+}
+
+.fx-text-disabled{
+  cursor: not-allowed;
+  color: $text-color-disabled;
+}
+
+.fx-text-color-title{
+  color: $text-color-title !important;
+}
+.fx-text-color{
+  color: $text-color !important;
+}
+.fx-text-color-description{
+  color: $text-color-description !important;
+}
+.fx-text-color-placeholder{
+  color: $text-color-placeholder !important;
+}
+
+.fx-color-primary{
+  color: $color-primary;
+}
+.fx-color-success{
+  color: $color-success;
+}
+.fx-color-warning{
+  color: $color-warning;
+}
+.fx-color-danger{
+  color: $color-danger;
+}
+
+.fx-icon-size{
+  font-size: 48upx;
+  width: 48upx;
+  height: 48upx;
+}
+.fx-icon-size_small{
+  font-size: 32upx;
+  width: 32upx;
+  height: 32upx;
+}
+.fx-icon-size_mini{
+  font-size: 24upx;
+  width: 24upx;
+  height: 24upx;
+}
+
+// tag
+.fx-tag-list{
+  .fx-tag{
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+.fx-tag{
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  font-size: $font-size-sm;
+  padding: 0 10px;
+  border-radius: 4px;
+  color: $color-white;
+  background: #969799;
+}
+.fx-tag-type_primary{
+  background-color: $color-primary;
+}
+.fx-tag-type_success{
+  background-color: $color-success;
+}
+.fx-tag-type_warning{
+  background-color: $color-warning;
+}
+.fx-tag-type_danger{
+  background-color: $color-danger;
+}
+.fx-tag-plain{
+  border: 1upx solid #969799;
+  color: #969799;
+  background: transparent;
+}
+.fx-tag-plain.fx-tag-type_primary{
+  border: 1upx solid $color-primary;
+  color: $color-primary;
+  background: transparent;
+}
+.fx-tag-plain.fx-tag-type_success{
+  border: 1upx solid $color-success;
+  color: $color-success;
+  background: transparent;
+}
+.fx-tag-plain.fx-tag-type_warning{
+  border: 1upx solid $color-warning;
+  color: $color-warning;
+  background: transparent;
+}
+.fx-tag-plain.fx-tag-type_danger{
+  border: 1upx solid $color-danger;
+  color: $color-danger;
+  background: transparent;
+}
+
+.fx-iphonex-margin-bottom{
+  margin-bottom: 48upx;
+}
+
+/* *************** page-flex 页面相关 *************** */
+// flex页面中需要滚动的部分
+.fx-page-flex-auto{
+  flex: 1;
+  overflow-y: auto;
+}
+// flex页面底部的操作按钮
+.fx-page-flex-footer-handle{
+  display: flex;
+  padding: 20upx 30upx;
+  button{
+    flex: 1;
+    margin-right: 30upx;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  button[type="default"]{
+    color: $color-danger;
+  }
+}
+
+// 顶部搜索框（实际没有输入框）
+.fx-header-search-frame{
+  width: 100%;
+  height: 44px;
+  background-color: $bg-color-grey;
+  padding: 6px 15px;
+  font-size: $font-size-sm;
+  .input-wrapper{
+    border-radius: 8px;
+    height: 32px;
+    line-height: 20px;
+    padding: 6px 15px;
+    background-color: $bg-color;
+    color: $text-color-placeholder;
+    display: flex;
+    .iconfont{
+      width: 20px;
+      height: 20px;
+      font-size: 14px;
+    }
+    .search-text{
+      flex: 1;
+      padding: 0 5px;
+    }
+  }
+}
+
+.fx-box-shadow{
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+// picker-view
+.fx-picker-view{
+  width: 100%;
+  height: 300upx;
+  background-color: $bg-color;
+  .picker-view-indicator{
+    height: 32px;
+    line-height: 32px;
+    color: $color-primary;
+  }
+  .picker-view-column-item{
+    height: 32px !important;
+    line-height: 32px !important;
+    text-align: center;
+  }
+  .picker-view-column-item_active{
+    height: 32px;
+    line-height: 32px;
+    color: $color-primary;
+    background-color: $bg-color;
+    font-size: $font-size-x;
+    font-weight: bold;
+  }
+}

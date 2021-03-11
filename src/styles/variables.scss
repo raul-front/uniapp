@@ -40,35 +40,35 @@ $color-border-dark: #dfdfdf;
 
 /* ******************** 尺寸变量 ******************** */
 /* 文字尺寸 */
-$font-size-sm-s: 10px;
-$font-size-sm: 12px;
-$font-size: 14px;
-$font-size-x: 16px;
-$font-size-lg: 18px;
-$font-size-lg-x: 20px;
-$font-size-lg-xx: 22px;
-$font-size-lg-xxx: 30px;
+$font-size-xs: 20rpx;
+$font-size-sm: 24rpx;
+$font-size: 28rpx;
+$font-size-md: 32rpx;
+$font-size-lg: 36rpx;
+$font-size-lg-x: 40rpx;
+$font-size-lg-xx: 44rpx;
+$font-size-lg-xxx: 60rpx;
 
 /* 图片尺寸 */
-$img-size-sm: 40upx;
-$img-size-base: 52upx;
-$img-size-lg: 80upx;
+$img-size-sm: 40rpx;
+$img-size-base: 52rpx;
+$img-size-lg: 80rpx;
 
 /* Border Radius */
-$border-radius-sm: 4upx;
-$border-radius-base: 6upx;
-$border-radius-lg: 12upx;
+$border-radius-sm: 4rpx;
+$border-radius-base: 6rpx;
+$border-radius-lg: 12rpx;
 $border-radius-circle: 50%;
 
 /* 水平间距 */
 $spacing-row-sm: 10px;
-$spacing-row-base: 20upx;
-$spacing-row-lg: 30upx;
+$spacing-row-base: 20rpx;
+$spacing-row-lg: 30rpx;
 
 /* 垂直间距 */
-$spacing-col-sm: 8upx;
-$spacing-col-base: 16upx;
-$spacing-col-lg: 24upx;
+$spacing-col-sm: 8rpx;
+$spacing-col-base: 16rpx;
+$spacing-col-lg: 24rpx;
 
 
 /* ******************** other ******************** */
@@ -79,11 +79,11 @@ $box-shadow-content: 0 1px 3px rgba(0, 0, 0, .1);
 
 /* 文章场景相关 */
 $title-color: #404040; // 文章标题颜色
-$title-font-size: 40upx;
+$title-font-size: 40rpx;
 $subtitle-color: #555555; // 二级标题颜色
-$subtitle-font-size: 36upx;
+$subtitle-font-size: 36rpx;
 $paragraph-color: #3F536E; // 文章段落颜色
-$paragraph-font-size: 30upx;
+$paragraph-font-size: 30rpx;
 
 $z-index-action-sheet: 200;
 $z-index-dialog: 200;
