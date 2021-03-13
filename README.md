@@ -16,7 +16,7 @@ npm run pre
 ```
 > 打包生产环境
 ```
-npm run build
+npm run release
 ```
 
 ## 微信开发者工具导入项目
@@ -34,5 +34,19 @@ dist/weixin/pre
 ```
 > 生产项目
 ```
-dist/weixin/build
+dist/weixin/release
+```
+
+## 上传微信代码包
+> 测试环境
+```
+make wx-test
+```
+> 预发环境
+```
+make wx-pre
+```
+> 生产环境
+```
+make wx-release
 ```

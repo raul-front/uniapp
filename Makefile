@@ -1,54 +1,25 @@
-APPID:=wx7e41671fa25c5fdc
 VERSION=${shell sed -n '1p' VERSION.txt}
 DESCRIPTION=${shell sed -n '2p' VERSION.txt}
+WX_APPID:=wx7e41671fa25c5fdc
 
-# 测试版
-test:
-	which miniprogram-ci || npm install -g miniprogram-ci
-	miniprogram-ci \
-		upload \
-		--pp ./dist/weixin/test \
-		--pkp ./private.${APPID}.key \
-		--appid ${APPID} \
+# 微信相关
+wx-test:
+	$(call uploadWeixin,test,测试版本：,3);
+wx-pre:
+	@$(call uploadWeixin,pre,预上线版本：,2);
+wx-release:
+	@$(call uploadWeixin,release,,1);
+# 上传微信方法，参数说明（环境变量，描述前缀，机器人编号）
+define uploadWeixin
+	echo "============ 上传微信-$(1) ============" \
+	&& npm run ${1} \
+	&& which miniprogram-ci || npm install -g miniprogram-ci \
+	&& miniprogram-ci upload \
+		--pp ./dist/weixin/$(1) \
+		--pkp ./private.${WX_APPID}.key \
+		--appid ${WX_APPID} \
 		--uv ${VERSION} \
-		--ud 测试版本：${DESCRIPTION} \
-		-r 3 \
+		--ud $(2)${DESCRIPTION} \
+		-r $(3) \
 		--enable-es6 true
-
-# 预上线版
-pre:
-	which miniprogram-ci || npm install -g miniprogram-ci
-	miniprogram-ci \
-		upload \
-		--pp ./dist/pre/weixin/pre \
-		--pkp ./private.${APPID}.key \
-		--appid ${APPID} \
-		--uv ${VERSION} \
-		--ud 预上线版本：${DESCRIPTION} \
-		-r 2 \
-		--enable-es6 true
-
-# 正式版
-release:
-	which miniprogram-ci || npm install -g miniprogram-ci
-	miniprogram-ci \
-		upload \
-		--pp ./dist/weixin/build \
-		--pkp ./private.${APPID}.key \
-		--appid ${APPID} \
-		--uv ${VERSION} \
-		--ud ${DESCRIPTION} \
-		-r 1 \
-		--enable-es6 true
-
-preview:
-	miniprogram-ci \
-		preview \
-		--pp ./ \
-		--pkp ./private.${APPID}.key \
-		--appid ${APPID} \
-		--uv ${VERSION} \
-		-r 5 \
-		--enable-es6 true \
-		--qrcode-format image \
-		--qrcode-output-dest '/tmp/x.jpg' \
+endef
