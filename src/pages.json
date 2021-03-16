@@ -26,7 +26,9 @@
   "easycom": {
     "autoscan": true,
     "custom": {
-      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
+      "^kg-(.*)": "@/components/kg/$1/index.vue",
+      "^home-(.*)": "@/components/home/$1/index.vue"
     }
   }
 }

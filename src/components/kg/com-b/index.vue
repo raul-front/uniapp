@@ -1,24 +1,30 @@
+<template>
+  <div class="com-b">
+    测试组件b
+  </div>
+</template>
+
 <script>
 export default {
-  name: 'component-hello',
   components: {},
   data () {
     return {
     }
   },
-  render (h) {
-    return h('button', {
-    }, 'hello')
-  },
   computed: {
   },
   watch: {
   },
-  methods: {
-  },
   created () {
   },
   mounted () {
+  },
+  methods: {
   }
 }
 </script>
+
+<style lang="scss">
+.com-b{
+}
+</style>

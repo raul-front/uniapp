@@ -9,6 +9,9 @@
 				<uni-badge text="1"></uni-badge>
 				<uni-badge text="3333333" type="primary" @click="bindClick" :inverted="false"></uni-badge>
 				<uni-icons type="contact" size="30"></uni-icons>
+
+				<home-com-a></home-com-a>
+				<kg-com-b></kg-com-b>
 			</view>
 		</view>
 	</view>
@@ -16,9 +19,7 @@
 </template>
 
 <script>
-	// import {uniBadge} from '@dcloudio/uni-ui'
 	export default {
-		// components: {uniBadge},
 		data() {
 			return {
 				title: 'Hello'
