@@ -62,7 +62,7 @@
 
 	.title {
 		font-size: 36rpx;
-		color: $color-primary;
+		color: $uni-color-primary;
 		text-align: center;
 		display: block;
 	}
