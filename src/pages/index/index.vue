@@ -5,6 +5,10 @@
 			<view>
 				<text class="title">{{title}}</text>
 				<text>{{isiPhoneX}}</text>
+
+				<uni-badge text="1"></uni-badge>
+				<uni-badge text="3333333" type="primary" @click="bindClick" :inverted="false"></uni-badge>
+				<uni-icons type="contact" size="30"></uni-icons>
 			</view>
 		</view>
 	</view>
@@ -12,7 +16,9 @@
 </template>
 
 <script>
+	// import {uniBadge} from '@dcloudio/uni-ui'
 	export default {
+		// components: {uniBadge},
 		data() {
 			return {
 				title: 'Hello'
@@ -27,7 +33,9 @@
 
 		},
 		methods: {
-
+			bindClick(){
+				console.log(123)
+			}
 		}
 	}
 </script>
