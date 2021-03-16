@@ -1,3 +1,254 @@
+$important: !important;
+
+// iphoneX底部空白
 .kg-iphonex-margin-bottom{
   margin-bottom: 48rpx;
+}
+
+// 底部按钮组
+.kg-footer-btn-wrapper{
+  padding: 50rpx 30rpx;
+  width: 100%;
+  @include flex-center();
+	.kg-footer-btn {
+    flex: 1;
+		margin: 0 30rpx;
+	}
+}
+// 按钮去掉边框
+.kg-btn-no-border{
+  border: none;
+  &::after{
+    border: none;
+  }
+}
+
+// 背景颜色
+.kg-bg-color{
+  background-color: $uni-bg-color !important;
+}
+.kg-bg-color-grey{
+  background-color: $uni-bg-color-grey !important;
+}
+.kg-bg-color-card{
+  background-color: $uni-bg-color-card !important;
+}
+.kg-bg-transparent{
+  background-color: transparent !important;
+}
+
+// 文本颜色
+.kg-text-primary{
+  color: $uni-color-primary !important;
+}
+.kg-text-success{
+  color: $uni-color-success !important;
+}
+.kg-text-warning{
+  color: $uni-color-warning !important;
+}
+.kg-text-error{
+  color: $uni-color-error !important;
+}
+.kg-text-title{
+	color: $uni-color-title !important;
+}
+.kg-text-subtitle{
+	color: $uni-color-subtitle !important;
+}
+.kg-text-paragraph{
+  color: $uni-color-paragraph !important;
+}
+
+// 文本隐藏行数
+.kg-text-line-1{
+  @include ellipsis();
+}
+.kg-text-line-2{
+  @include multi-line-ellipsis(2);
+}
+.kg-text-line-3{
+  @include multi-line-ellipsis(3);
+}
+.kg-text-line-4{
+  @include multi-line-ellipsis(4);
+}
+.kg-text-line-5{
+  @include multi-line-ellipsis(5);
+}
+
+// 宽度
+.kg-width-auto{
+  width: auto !important;
+}
+
+// 分割线
+.kg-line-divider{
+  height: 1rpx;
+  width: 100%;
+  background-color: $uni-border-color;
+}
+// 含有文字的分割线
+.kg-line-text{
+  width: 100%;
+  padding: 0 20rpx;
+  @include flex-center();
+  &::before{
+    content: ' ';
+    height: 1px;
+    background: $uni-border-color;
+    flex: 1;
+  }
+  &::after{
+    content: ' ';
+    height: 1px;
+    background: $uni-border-color;
+    flex: 1;
+  }
+  text{
+    padding: 0 15rpx;
+  }
+}
+
+// 空盒子
+.kg-empty-box{
+  padding: 30rpx;
+  @include flex-center(column);
+  .image{
+    width: 180rpx;
+    height: 120rpx;
+  }
+  .text{
+    margin-top: 20rpx;
+    text-align: center;
+    color: $uni-text-color-grey;
+  }
+}
+
+// loading 需要父组件position: ralative
+.kg-loading-box{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background: $uni-bg-color-mask;
+  @include flex-center(column);
+  color: #ffffff;
+  .iconfont{
+    animation: kg-rotate 1.2s linear infinite;
+  }
+  .text{
+    margin-top: 20rpx;
+    color: $uni-text-color-grey;
+  }
+}
+@keyframes kg-rotate{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+// icon-size
+.kg-icon-size-sm{
+  font-size: 24rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+.kg-icon-size{
+  font-size: 32rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.kg-icon-size-lg{
+  font-size: 48rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.kg-box-shadow{
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+// form TODO:
+.kg-form{
+}
+
+
+// border
+$borderSize: (
+  -no: 0 $important,
+  '': 1rpx solid $uni-border-color,
+);
+@each $key, $value in $borderSize {
+  .kg-border#{$key}{
+    border: $value;
+  }
+  .kg-border-top#{$key}{
+    border-top: $value;
+  }
+  .kg-border-right#{$key}{
+    border-right: $value;
+  }
+  .kg-border-bottom#{$key}{
+    border-bottom: $value;
+  }
+  .kg-border-left#{$key}{
+    border-left: $value;
+  }
+}
+
+// margin
+$marginSize: (
+  -no: 0 $important,
+  -sm: 8rpx,
+  '': 16rpx,
+  -lg: 24rpx
+);
+@each $key, $value in $marginSize {
+  .kg-margin#{$key}{
+    margin: $value;
+  }
+  .kg-margin-top#{$key}{
+    margin-top: $value;
+  }
+  .kg-margin-right#{$key}{
+    margin-right: $value;
+  }
+  .kg-margin-bottom#{$key}{
+    margin-bottom: $value;
+  }
+  .kg-margin-left#{$key}{
+    margin-left: $value;
+  }
+}
+
+// padding
+$paddingSize: (
+  -no: 0 $important,
+  -sm: 8rpx,
+  '': 16rpx,
+  -lg: 24rpx
+);
+@each $key, $value in $paddingSize {
+  .kg-padding#{$key}{
+    padding: $value;
+  }
+  .kg-padding-top#{$key}{
+    padding-top: $value;
+  }
+  .kg-padding-right#{$key}{
+    padding-right: $value;
+  }
+  .kg-padding-bottom#{$key}{
+    padding-bottom: $value;
+  }
+  .kg-padding-left#{$key}{
+    padding-left: $value;
+  }
+}
+
+// flex
+.kg-flex-center{
+  @include flex-center();
 }

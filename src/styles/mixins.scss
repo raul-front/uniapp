@@ -67,7 +67,7 @@
 }
 
 /* multi line ellipsis */
-@mixin multiline-ellipsis($num: 2) {
+@mixin multi-line-ellipsis($num: 2) {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;

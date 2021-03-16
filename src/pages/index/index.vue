@@ -12,6 +12,10 @@
 
 				<home-com-a></home-com-a>
 				<kg-com-b></kg-com-b>
+
+			</view>
+			<view class="kg-line-text">
+				<text>底部</text>
 			</view>
 		</view>
 	</view>
