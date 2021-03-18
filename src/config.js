@@ -3,6 +3,8 @@
  * @Author: pujianguo
  * @Date: 2021-03-11 09:23:36
  */
+import theme from 'styles/uni.scss'
+
 const ENV = process.env.VUE_APP_TITLE === 'pre'
   ? 'pre'
   : process.env.VUE_APP_TITLE === 'test'
@@ -36,6 +38,8 @@ const release = {
 
 const common = {
   loginPath: '/pages/login/login',
+  defaultAvatar: '/static/images/avatar.png',
+  primaryColor: theme.primaryColor,
 }
 
 let config = {}

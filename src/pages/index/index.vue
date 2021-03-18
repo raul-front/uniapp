@@ -10,12 +10,18 @@
 				<uni-badge text="3333333" type="primary" @click="bindClick" :inverted="false"></uni-badge>
 				<uni-icons type="contact" size="30"></uni-icons>
 
-				<home-com-a></home-com-a>
-				<kg-com-b></kg-com-b>
-
 			</view>
 			<view class="kg-line-text">
-				<text>底部</text>
+				<text>底部{{primaryColor}}</text>
+				<image :src="defaultAvatar" mode="" />
+
+			</view>
+
+			<view style="width: 100%; height: 300px;" class="kg-flex-center">
+				<kg-empty-box></kg-empty-box>
+			</view>
+			<view style="width: 100%; height: 300px;" class="kg-position-relative">
+				<kg-loading-box></kg-loading-box>
 			</view>
 		</view>
 	</view>
@@ -26,7 +32,9 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				primaryColor: this.config.primaryColor,
+				defaultAvatar: this.config.defaultAvatar
 			}
 		},
 		computed: {

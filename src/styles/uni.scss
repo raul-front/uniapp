@@ -88,3 +88,7 @@ $z-index-action-sheet: 200;
 $z-index-dialog: 200;
 $z-index-toast: 300;
 $z-index-message: 400;
+
+:export {
+  primaryColor: $uni-color-primary;
+}

@@ -1,0 +1,165 @@
+/*
+ * @Descripttion: 原子类样式
+ * @Author: pujianguo
+ * @Date: 2021-03-11 09:17:11
+ */
+
+$important: !important;
+
+// 背景颜色
+.kg-bg-color{
+  background-color: $uni-bg-color !important;
+}
+.kg-bg-color-grey{
+  background-color: $uni-bg-color-grey !important;
+}
+.kg-bg-color-card{
+  background-color: $uni-bg-color-card !important;
+}
+.kg-bg-transparent{
+  background-color: transparent !important;
+}
+
+// 文本颜色
+.kg-text-primary{
+  color: $uni-color-primary !important;
+}
+.kg-text-success{
+  color: $uni-color-success !important;
+}
+.kg-text-warning{
+  color: $uni-color-warning !important;
+}
+.kg-text-error{
+  color: $uni-color-error !important;
+}
+.kg-text-grey{
+  color: $uni-text-color-grey !important;
+}
+.kg-text-placeholder{
+  color: $uni-text-color-placeholder !important;
+}
+.kg-text-disable{
+  color: $uni-text-color-disable !important;
+}
+.kg-text-title{
+	color: $uni-color-title !important;
+}
+.kg-text-subtitle{
+	color: $uni-color-subtitle !important;
+}
+.kg-text-paragraph{
+  color: $uni-color-paragraph !important;
+}
+
+// 文本隐藏行数
+.kg-text-line-1{
+  @include ellipsis();
+}
+.kg-text-line-2{
+  @include multi-line-ellipsis(2);
+}
+.kg-text-line-3{
+  @include multi-line-ellipsis(3);
+}
+.kg-text-line-4{
+  @include multi-line-ellipsis(4);
+}
+.kg-text-line-5{
+  @include multi-line-ellipsis(5);
+}
+
+.kg-box-shadow{
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+// border
+$borderSize: (
+  -no: 0 $important,
+  '': 1rpx solid $uni-border-color,
+);
+@each $key, $value in $borderSize {
+  .kg-border#{$key}{
+    border: $value;
+  }
+  .kg-border-top#{$key}{
+    border-top: $value;
+  }
+  .kg-border-right#{$key}{
+    border-right: $value;
+  }
+  .kg-border-bottom#{$key}{
+    border-bottom: $value;
+  }
+  .kg-border-left#{$key}{
+    border-left: $value;
+  }
+}
+
+// margin
+$marginSize: (
+  -no: 0 $important,
+  -sm: 8rpx,
+  '': 16rpx,
+  -lg: 24rpx
+);
+@each $key, $value in $marginSize {
+  .kg-margin#{$key}{
+    margin: $value;
+  }
+  .kg-margin-top#{$key}{
+    margin-top: $value;
+  }
+  .kg-margin-right#{$key}{
+    margin-right: $value;
+  }
+  .kg-margin-bottom#{$key}{
+    margin-bottom: $value;
+  }
+  .kg-margin-left#{$key}{
+    margin-left: $value;
+  }
+}
+
+// padding
+$paddingSize: (
+  -no: 0 $important,
+  -sm: 8rpx,
+  '': 16rpx,
+  -lg: 24rpx
+);
+@each $key, $value in $paddingSize {
+  .kg-padding#{$key}{
+    padding: $value;
+  }
+  .kg-padding-top#{$key}{
+    padding-top: $value;
+  }
+  .kg-padding-right#{$key}{
+    padding-right: $value;
+  }
+  .kg-padding-bottom#{$key}{
+    padding-bottom: $value;
+  }
+  .kg-padding-left#{$key}{
+    padding-left: $value;
+  }
+}
+
+// position
+.kg-position-relative{
+  position: relative;
+}
+
+// text
+.kg-text-algin-center{
+  text-algin: center;
+}
+.kg-text-font-bold{
+  text-weight: bold;
+}
+
+// 宽度
+.kg-width-auto{
+  width: auto !important;
+}

@@ -15,6 +15,36 @@
     {
       "root": "pagesB",
       "pages": []
+    },
+    {
+      "root": "pagesK",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "组件"
+          }
+        },
+        {
+          "path": "page/refreshPageList",
+          "style": {
+            "navigationBarTitleText": "页面下拉刷新",
+            "enablePullDownRefresh": true
+          }
+        },
+        {
+          "path": "page/refreshScrollViewList",
+          "style": {
+            "navigationBarTitleText": "ScrollView下拉刷新"
+          }
+        },
+        {
+          "path": "page/pageFooterHandle",
+          "style": {
+            "navigationBarTitleText": "页面底部有操作按钮"
+          }
+        }
+      ]
     }
   ],
   "globalStyle": {
