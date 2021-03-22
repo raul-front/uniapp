@@ -7,12 +7,17 @@ export default {
   },
   data () {
     return {
+      query: {},
       showRefreshLoading: false,
+      initLoading: true, // 初始化加载的标识
       loading: false,
       pageSize: 15,
       currentPage: 0,
       total: 0,
       list: [],
+      showNoMoreMinLength: 10, // 超过n条数据展示没有更多的提示
+      isShowFooterLoading: false,
+      isShowFooterNoMore: false,
     }
   },
   methods: {
@@ -35,29 +40,46 @@ export default {
       if (isRefresh) {
         this.showRefreshLoading = true
       }
-      const params = {
+      const query = Object.assign({
         offset: this.currentPage * this.pageSize,
         limit: this.pageSize,
-      }
+      }, this.query)
+
       this.loading = true
+      this.setFooter()
       uni.showNavigationBarLoading()
-      this.getDataHandle(params).then(res => {
+      const isShowRequestLoading = !this.initLoading && isRefresh
+      this.getDataHandle(query, isShowRequestLoading).then(({ items, count }) => {
         this.currentPage++
-        this.total = res.count
-        const list = res.items.map(x => {
-          return this.getDataForList(x)
-        })
-        if (isRefresh) {
-          this.list = list
-        } else {
+        this.total = count
+        const list = items
+        if (!isRefresh) {
           this.list.push(...list)
+        } else {
+          this.list = list
         }
       }).finally(() => {
+        if (this.initLoading) {
+          this.initLoading = false
+        }
+        this.showRefreshLoading = false
+        this.loading = false
+        this.setFooter()
         uni.stopPullDownRefresh()
         uni.hideNavigationBarLoading()
-        this.loading = false
-        this.showRefreshLoading = false
       })
+    },
+    setFooter () {
+      let isShowFooterLoading = false
+      let isShowFooterNoMore = false
+      if (this.initLoading || (this.loading && this.currentPage > 0 && this.currentPage !== this.pages)) {
+        isShowFooterLoading = true
+      }
+      if (!this.loading && this.list.length > this.showNoMoreMinLength && this.currentPage === this.pages) {
+        isShowFooterNoMore = true
+      }
+      this.isShowFooterLoading = isShowFooterLoading
+      this.isShowFooterNoMore = isShowFooterNoMore
     },
   },
 }

@@ -163,3 +163,32 @@ $paddingSize: (
 .kg-width-auto{
   width: auto !important;
 }
+
+// flex
+.kg-display-flex{
+  display: flex;
+}
+.kg-display-flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.kg-flex-item{
+  flex: 1;
+}
+
+// overflow
+.kg-overflow-hidden{
+  overflow: hidden;
+}
+.kg-overflow-x-hidden{
+  overflow: hidden;
+}
+.kg-overflow-y-hidden{
+  overflow: hidden;
+}
+.kg-overflow-x-auto{
+  overflow: auto;
+}
+.kg-overflow-y-auto{
+  overflow: auto;
+}

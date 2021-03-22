@@ -43,6 +43,12 @@
           "style": {
             "navigationBarTitleText": "页面底部有操作按钮"
           }
+        },
+        {
+          "path": "page/index",
+          "style": {
+            "navigationBarTitleText": "索引列表"
+          }
         }
       ]
     }

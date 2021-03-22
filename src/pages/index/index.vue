@@ -1,7 +1,7 @@
 <template>
 	<view :class="{'kg-iphonex-margin-bottom': isiPhoneX}">
 		<view class="content">
-			<image class="logo" src="/static/logo.png"></image>
+			<image class="logo" src="/static/images/logo.png"></image>
 			<view>
 				<text class="title">{{title}}</text>
 				<text>{{isiPhoneX}}</text>
@@ -23,6 +23,12 @@
 			<view style="width: 100%; height: 300px;" class="kg-position-relative">
 				<kg-loading-box></kg-loading-box>
 			</view>
+
+			<navigator class="kg-cell kg-cell_access" hover-class="kg-cell_active" url="/pagesK/index">
+				<view class="kg-cell-content">
+					<view class="kg-cell-content-bd">组件</view>
+				</view>
+			</navigator>
 		</view>
 	</view>
 

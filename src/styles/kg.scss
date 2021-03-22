@@ -11,7 +11,7 @@
 
 // 底部按钮组
 .kg-footer-btn-wrapper{
-  padding: 50rpx 30rpx;
+  padding: 20rpx 30rpx;
   width: 100%;
   @include flex-center();
 	.kg-footer-btn {
@@ -36,22 +36,23 @@
 // 含有文字的分割线
 .kg-line-text{
   width: 100%;
-  padding: 0 20rpx;
   @include flex-center();
   &::before{
     content: ' ';
     height: 1px;
-    background: $uni-border-color;
+    background: $uni-border-color-dark;
     flex: 1;
+    margin-left: 40rpx;
   }
   &::after{
     content: ' ';
     height: 1px;
-    background: $uni-border-color;
+    background: $uni-border-color-dark;
     flex: 1;
+    margin-right: 40rpx;
   }
   text{
-    padding: 0 15rpx;
+    padding: 0 30rpx;
   }
 }
 
@@ -75,6 +76,26 @@
 // flex
 .kg-flex-center{
   @include flex-center();
+}
+
+// 右侧箭头
+.kg-access{
+  position: relative;
+  padding-right: 60rpx;
+  &::after{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    height: 6px;
+    width: 6px;
+    border-width: 1px 1px 0 0;
+    border-color: $uni-text-color-grey;
+    border-style: solid;
+    margin-top: -3px;
+    transform: rotate(45deg);
+  }
 }
 
 /* *************** panel *************** */
@@ -273,4 +294,10 @@
   .kg-cell .kg-cell-content{
     border-color: $uni-border-color-dark !important;
   }
+}
+
+
+.kg-full{
+  width: 100%;
+  height: 100%;
 }

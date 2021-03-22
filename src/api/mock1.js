@@ -1,5 +1,4 @@
-
-export const listMockNews = params => {
+export const listMockNews = (params, loading) => {
   return new Promise(resolve => {
     setTimeout(() => {
       const count = 55

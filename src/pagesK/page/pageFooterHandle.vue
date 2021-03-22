@@ -1,6 +1,6 @@
 <template>
-  <view class="example-page-footer">
-    <view class="fx-page-flex-auto">
+  <view class="example-page-footer" :class="{'kg-iphonex-margin-bottom': isiPhoneX}">
+    <view class="kg-flex-item kg-overflow-y-auto">
       <view class="task-member-list">
         <view class="member-item" v-for="item in list" :key="item.id">
           <image class="avatar" :src="item.avatar">
@@ -8,9 +8,9 @@
         </view>
       </view>
     </view>
-    <view class="fx-page-flex-footer-handle">
-      <button @click="cancleHandle">取消</button>
-      <button type="primary" @click="submitHandle" :loading="submitBtnLoading" :disabled="submitBtnLoading">完成</button>
+    <view class="kg-footer-btn-wrapper">
+      <button class="kg-footer-btn" @click="cancleHandle">取消</button>
+      <button class="kg-footer-btn" type="primary" @click="submitHandle" :loading="submitBtnLoading" :disabled="submitBtnLoading">完成</button>
     </view>
   </view>
 </template>
@@ -56,6 +56,9 @@ export default {
     }
   },
   computed: {
+    isiPhoneX () {
+      return this.$store.state.common.isiPhoneX
+    },
   },
   watch: {
   },

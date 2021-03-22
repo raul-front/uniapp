@@ -1,28 +1,23 @@
 <template>
   <view class="example-refresh-scroll-view">
-    <view class="example-refresh-scroll-view-header">
-      <view class="input-wrapper">
-        <view class="iconfont icon-sousuosvg"></view>
-        <view class="search-text">搜索任务、文件或其他</view>
-        <view class="iconfont icon-shaixuan"></view>
-        <view class="filter-text">筛选</view>
-      </view>
-    </view>
-    <scroll-view class="example-refresh-scroll-view-body" enable-back-to-top="true" scroll-y
+    <uni-search-bar class="kg-bg-color-grey" bg-color="#ffffff" :radius="100" @confirm="handleSearch"></uni-search-bar>
+
+    <scroll-view class="kg-flex-item kg-overflow-hidden" enable-back-to-top="true" scroll-y
         refresher-enabled="true" :refresher-triggered="showRefreshLoading"
         @refresherrefresh="onPullDownRefresh" @scrolltolower="onReachBottom">
-      <view class="fx-cell-box">
-        <view class="fx-cells">
-          <view class="fx-cell fx-cell_access" v-for="(item, i) in list" :key="i">
-            <view class="fx-cell-content">
-              <view class="fx-cell-content-bd">{{item.id}}, {{item.title}}</view>
-              <view class="fx-cell-content-ft">{{item.datetime}}</view>
+      <view class="kg-cell-box">
+        <view class="kg-cells">
+          <view class="kg-cell kg-cell_access" v-for="(item, i) in list" :key="i">
+            <view class="kg-cell-content">
+              <view class="kg-cell-content-bd">{{item.id}}, {{item.title}}</view>
+              <view class="kg-cell-content-ft">{{item.datetime}}</view>
             </view>
           </view>
         </view>
       </view>
-      <kg-page-footer :loading="loading" :currentPage="currentPage" :pages="pages"></kg-page-footer>
-      <kg-empty-box v-if="list.length === 0"></kg-empty-box>
+
+      <kg-page-footer :show-loading="isShowFooterLoading" :show-no-more="isShowFooterNoMore"></kg-page-footer>
+      <kg-empty-box class="kg-full kg-flex-center" v-if="!initLoading && list.length === 0"></kg-empty-box>
     </scroll-view>
   </view>
 </template>
@@ -36,6 +31,7 @@ export default {
   mixins: [refreshScrollViewList],
   data () {
     return {
+      searchValue: ''
     }
   },
   computed: {
@@ -51,8 +47,19 @@ export default {
   onShow () {
   },
   methods: {
-    getDataHandle (params) {
-      return listMockNews(params, false)
+    // 固定方法：获取列表数据
+    getDataHandle (query, loading) {
+      return listMockNews(query, loading).then(res => {
+        let list = res.items || []
+        list = list.map(x => {
+          return {
+            id: x.id,
+            title: x.title,
+            datetime: x.datetime
+          }
+        })
+        return { items: list, count: res.count }
+      })
     },
     getDataForList (x) {
       return {
@@ -62,7 +69,13 @@ export default {
       }
     },
 
-    doneHandle () {
+    handleSearch () {
+      if (this.searchValue !== '') {
+        this.query = {
+          search: this.searchValue
+        }
+        this.refresh(true)
+      }
     }
   }
 }
@@ -71,36 +84,6 @@ export default {
 <style lang="scss">
 @include page-flex();
 .example-refresh-scroll-view{
-  .example-refresh-scroll-view-header{
-    width: 100%;
-    height: 88rpx;
-    background-color: $uni-bg-color-grey;
-    padding: 12rpx 30rpx;
-    font-size: $uni-font-size-sm;
-    .input-wrapper{
-      border-radius: 16rpx;
-      height: 64rpx;
-      line-height: 40rpx;
-      padding: 12rpx 30rpx;
-      background-color: $uni-bg-color;
-      color: $uni-text-color-grey;
-      display: flex;
-      .iconfont{
-        width: 40rpx;
-        height: 40rpx;
-        font-size: 28rpx;
-      }
-      .search-text{
-        flex: 1;
-        border-right: 1px solid $uni-text-color-grey;
-        padding: 0 10rpx;
-        margin-right: 20rpx;
-      }
-      .filter-text{
-        padding: 0 10rpx;
-      }
-    }
-  }
   .example-refresh-scroll-view-body{
     flex: 1;
     overflow: hidden;
