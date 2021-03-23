@@ -8,14 +8,7 @@
     }
   ],
   "subPackages": [
-    {
-      "root": "pagesA",
-      "pages": []
-    },
-    {
-      "root": "pagesB",
-      "pages": []
-    },
+    // exampleStart
     {
       "root": "pagesK",
       "pages": [
@@ -51,6 +44,15 @@
           }
         }
       ]
+    },
+    // exampleEnd
+    {
+      "root": "pagesA",
+      "pages": []
+    },
+    {
+      "root": "pagesB",
+      "pages": []
     }
   ],
   "globalStyle": {
