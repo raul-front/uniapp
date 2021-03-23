@@ -11,8 +11,8 @@ export default {
   props: {
     text: {
       type: String,
-      default: '正在加载...'
-    }
-  }
+      default: '正在加载...',
+    },
+  },
 }
 </script>

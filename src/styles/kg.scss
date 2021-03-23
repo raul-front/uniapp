@@ -296,6 +296,219 @@
   }
 }
 
+/* *************** form *************** */
+.kg-form {
+  $line-height: 2em;
+  padding: 15rpx 0 15rpx 30rpx;
+  .kg-form-title{
+  }
+  .kg-form-cell{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid $uni-border-color;
+    padding: 20rpx 20rpx 20rpx 0;
+    line-height: $line-height;
+    min-height: $line-height;
+    &:last-child{
+      border-bottom: 0;
+    }
+    .kg-form-cell-icon{
+      width: $line-height;
+      height: $line-height;
+      @include flex-center();
+      margin-right: 10px;
+      .iconfont{
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+        @include flex-center();
+      }
+    }
+    .kg-form-cell-label{
+      line-height: $line-height;
+      width: 180rpx;
+      margin-right: 20rpx;
+    }
+    .kg-form-cell-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      .kg-form-input {
+        min-height: $line-height;
+        line-height: $line-height;
+        flex: 1;
+        color: $uni-color-title;
+      }
+      .kg-form-text{
+        min-height: $line-height;
+        line-height: $line-height;
+        flex: 1;
+        color: $uni-color-subtitle;
+      }
+      .kg-form-textarea{
+        flex: 1;
+        width: auto;
+        min-height: 3.4em;
+        padding: 0.3em 0;
+        line-height: 1.4em;
+        color: $uni-color-title;
+      }
+      .kg-form-switch{
+        height: $line-height;
+      }
+      .kg-form-picker{
+        flex: 1;
+        color: $uni-color-title;
+        .kg-form-picker-text{
+          position: relative;
+          padding-right: 30px;
+          min-height: $line-height;
+          line-height: $line-height;
+        }
+        .kg-form-picker-text::after{
+          content: "";
+          display: inline-block;
+          height: 6px;
+          width: 6px;
+          border-width: 1px 1px 0 0;
+          border-color: $uni-text-color-grey;
+          border-style: solid;
+          transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+          position: absolute;
+          top: -2px;
+          top: 50%;
+          right: 15px;
+          margin-top: -4px;
+        }
+      }
+      .kg-form-check-group{ // 包含radio, checkbox
+        min-height: $line-height;
+        line-height: $line-height;
+        flex: 1;
+        color: $uni-color-title;
+        display: flex;
+        flex-wrap: wrap;
+        .kg-form-check-group-item{
+          margin-right: 20rpx;
+          display: flex;
+          .kg-form-check-group-item-check{
+          }
+          .kg-form-check-group-item-label{
+          }
+        }
+      }
+    }
+    .kg-form-cell-item{
+      height: $line-height;
+      line-height: $line-height;
+      font-size: $uni-font-size-base;
+    }
+    .kg-form-cell-unit{
+      width: 36px;
+      text-align: center;
+      margin-right: 0px;
+    }
+  }
+  // 有多行内容的行，如textarea,radio-group, checkbox
+  .kg-form-cell_label-top{
+    align-items: flex-start;
+    .kg-form-cell-content{
+      min-height: $line-height;
+    }
+  }
+  .kg-form-cell__label{ // 只有标题
+    color: $uni-color-subtitle;
+    padding: 15rpx 20rpx 15rpx 0;
+    line-height: $line-height;
+    min-height: $line-height;
+    .kg-form-cell__label-title{
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .kg-form-cell__label-desc{
+      display: inline-block;
+      vertical-align: middle;
+      min-height: 1.4em;
+      line-height: 1.4em;
+      margin-left: 20rpx;
+      font-size: $uni-font-size-sm;
+      color: $uni-text-color-grey;
+    }
+  }
+  .kg-form-cell__image{
+    padding-bottom: 20rpx;
+    padding-right: 20rpx;
+    border-bottom: 1rpx solid $uni-border-color;
+  }
+
+  .kg-form-cell__obey{ // 服从条款勾选框
+    border-bottom: 1rpx solid $uni-border-color;
+    padding: 15rpx 20rpx 15rpx 0;
+    label{
+      width: 100%;
+    }
+    switch{
+      display: inline-block;
+      vertical-align: middle;
+      line-height: $line-height;
+    }
+    .kg-form-cell__obey-title{
+      color: $uni-color-primary;
+      vertical-align: middle;
+      display: inline-block;
+      min-height: $line-height;
+      line-height: $line-height;
+      margin-right: 20rpx;
+    }
+    .kg-form-cell__obey-desc{
+      color: $uni-color-subtitle;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1.4em;
+      font-size: $uni-font-size-sm;
+    }
+  }
+
+  // 必选标识
+  .kg-form-cell_required {
+    position: relative;
+    &:before {
+      content: "*";
+      position: absolute;
+      left: -18rpx;
+      margin-top: 5rpx;
+      text-align: center;
+      color: $uni-color-error;
+    }
+  }
+}
+.kg-form_cell-no-border{
+  .kg-form-cell, .kg-form-cell__image{
+    border-bottom: 0;
+  }
+}
+// form value 向右对齐
+.kg-form_value-right{
+  .kg-form-cell{
+    .kg-form-cell-label{
+      width: auto;
+    }
+    .kg-form-cell-content{
+      .kg-form-picker{
+        text-align: right;
+      }
+      .kg-form-input, .kg-form-text, .kg-form-item, .kg-form-switch {
+        text-align: right;
+        margin-right: 12px;
+      }
+      .kg-form-radio-group{
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
 
 .kg-full{
   width: 100%;

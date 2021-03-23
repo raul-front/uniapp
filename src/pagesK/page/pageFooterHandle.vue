@@ -22,37 +22,37 @@ export default {
     return {
       submitBtnLoading: false,
       list: [
-        { id: 1, name: 'name1', 'avatar': this.config.defaultAvatar },
-        { id: 2, name: 'name2', 'avatar': this.config.defaultAvatar },
-        { id: 3, name: 'name3', 'avatar': this.config.defaultAvatar },
-        { id: 4, name: 'name4', 'avatar': this.config.defaultAvatar },
-        { id: 5, name: 'name5', 'avatar': this.config.defaultAvatar },
-        { id: 6, name: 'name6', 'avatar': this.config.defaultAvatar },
-        { id: 7, name: 'name7', 'avatar': this.config.defaultAvatar },
-        { id: 8, name: 'name8', 'avatar': this.config.defaultAvatar },
-        { id: 9, name: 'name9', 'avatar': this.config.defaultAvatar },
-        { id: 10, name: 'name10', 'avatar': this.config.defaultAvatar },
-        { id: 11, name: 'name11', 'avatar': this.config.defaultAvatar },
-        { id: 12, name: 'name12', 'avatar': this.config.defaultAvatar },
-        { id: 13, name: 'name13', 'avatar': this.config.defaultAvatar },
-        { id: 14, name: 'name14', 'avatar': this.config.defaultAvatar },
-        { id: 15, name: 'name15', 'avatar': this.config.defaultAvatar },
-        { id: 16, name: 'name16', 'avatar': this.config.defaultAvatar },
-        { id: 17, name: 'name17', 'avatar': this.config.defaultAvatar },
-        { id: 18, name: 'name18', 'avatar': this.config.defaultAvatar },
-        { id: 19, name: 'name19', 'avatar': this.config.defaultAvatar },
-        { id: 20, name: 'name20', 'avatar': this.config.defaultAvatar },
-        { id: 21, name: 'name21', 'avatar': this.config.defaultAvatar },
-        { id: 22, name: 'name22', 'avatar': this.config.defaultAvatar },
-        { id: 23, name: 'name23', 'avatar': this.config.defaultAvatar },
-        { id: 24, name: 'name24', 'avatar': this.config.defaultAvatar },
-        { id: 25, name: 'name25', 'avatar': this.config.defaultAvatar },
-        { id: 26, name: 'name26', 'avatar': this.config.defaultAvatar },
-        { id: 27, name: 'name27', 'avatar': this.config.defaultAvatar },
-        { id: 28, name: 'name28', 'avatar': this.config.defaultAvatar },
-        { id: 29, name: 'name29', 'avatar': this.config.defaultAvatar },
-        { id: 30, name: 'name30', 'avatar': this.config.defaultAvatar }
-      ]
+        { id: 1, name: 'name1', avatar: this.config.defaultAvatar },
+        { id: 2, name: 'name2', avatar: this.config.defaultAvatar },
+        { id: 3, name: 'name3', avatar: this.config.defaultAvatar },
+        { id: 4, name: 'name4', avatar: this.config.defaultAvatar },
+        { id: 5, name: 'name5', avatar: this.config.defaultAvatar },
+        { id: 6, name: 'name6', avatar: this.config.defaultAvatar },
+        { id: 7, name: 'name7', avatar: this.config.defaultAvatar },
+        { id: 8, name: 'name8', avatar: this.config.defaultAvatar },
+        { id: 9, name: 'name9', avatar: this.config.defaultAvatar },
+        { id: 10, name: 'name10', avatar: this.config.defaultAvatar },
+        { id: 11, name: 'name11', avatar: this.config.defaultAvatar },
+        { id: 12, name: 'name12', avatar: this.config.defaultAvatar },
+        { id: 13, name: 'name13', avatar: this.config.defaultAvatar },
+        { id: 14, name: 'name14', avatar: this.config.defaultAvatar },
+        { id: 15, name: 'name15', avatar: this.config.defaultAvatar },
+        { id: 16, name: 'name16', avatar: this.config.defaultAvatar },
+        { id: 17, name: 'name17', avatar: this.config.defaultAvatar },
+        { id: 18, name: 'name18', avatar: this.config.defaultAvatar },
+        { id: 19, name: 'name19', avatar: this.config.defaultAvatar },
+        { id: 20, name: 'name20', avatar: this.config.defaultAvatar },
+        { id: 21, name: 'name21', avatar: this.config.defaultAvatar },
+        { id: 22, name: 'name22', avatar: this.config.defaultAvatar },
+        { id: 23, name: 'name23', avatar: this.config.defaultAvatar },
+        { id: 24, name: 'name24', avatar: this.config.defaultAvatar },
+        { id: 25, name: 'name25', avatar: this.config.defaultAvatar },
+        { id: 26, name: 'name26', avatar: this.config.defaultAvatar },
+        { id: 27, name: 'name27', avatar: this.config.defaultAvatar },
+        { id: 28, name: 'name28', avatar: this.config.defaultAvatar },
+        { id: 29, name: 'name29', avatar: this.config.defaultAvatar },
+        { id: 30, name: 'name30', avatar: this.config.defaultAvatar },
+      ],
     }
   },
   computed: {
@@ -68,13 +68,13 @@ export default {
   },
   methods: {
     cancleHandle () {
-      wx.navigateBack()
+      uni.navigateBack()
     },
     submitHandle () {
       this.submitBtnLoading = true
       console.log('submit')
-    }
-  }
+    },
+  },
 }
 </script>
 

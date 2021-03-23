@@ -26,12 +26,11 @@
 import { listMockNews } from 'api/mock1'
 import refreshScrollViewList from '@/mixins/refreshScrollViewList'
 
-
 export default {
   mixins: [refreshScrollViewList],
   data () {
     return {
-      searchValue: ''
+      searchValue: '',
     }
   },
   computed: {
@@ -55,7 +54,7 @@ export default {
           return {
             id: x.id,
             title: x.title,
-            datetime: x.datetime
+            datetime: x.datetime,
           }
         })
         return { items: list, count: res.count }
@@ -65,19 +64,19 @@ export default {
       return {
         id: x.id,
         title: x.title,
-        datetime: x.datetime
+        datetime: x.datetime,
       }
     },
 
     handleSearch () {
       if (this.searchValue !== '') {
         this.query = {
-          search: this.searchValue
+          search: this.searchValue,
         }
         this.refresh(true)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -28,7 +28,7 @@ export default {
   mixins: [refreshPageList],
   data () {
     return {
-      searchValue: ''
+      searchValue: '',
     }
   },
   computed: {
@@ -51,7 +51,7 @@ export default {
           return {
             id: x.id,
             title: x.title,
-            datetime: x.datetime
+            datetime: x.datetime,
           }
         })
         return { items: list, count: res.count }
@@ -60,11 +60,11 @@ export default {
     handleSearch () {
       if (this.searchValue !== '') {
         this.query = {
-          search: this.searchValue
+          search: this.searchValue,
         }
         this.refresh(true)
       }
-    }
-  }
+    },
+  },
 }
 </script>

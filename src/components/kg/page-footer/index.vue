@@ -1,7 +1,7 @@
 <template>
   <view class="page-footer" v-if="showLoading || showNoMore">
     <view class="loading" v-if="showLoading">
-      <image class="icon" src="@/static/images/components/loading.png"></image>
+      <image class="icon" src="@/static/images/icons/loading.png"></image>
       <text class="text">正在加载</text>
     </view>
     <view class="kg-line-text" v-if="showNoMore">

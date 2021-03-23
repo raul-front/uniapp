@@ -19,6 +19,12 @@
           }
         },
         {
+          "path": "base/form",
+          "style": {
+            "navigationBarTitleText": "表单"
+          }
+        },
+        {
           "path": "page/refreshPageList",
           "style": {
             "navigationBarTitleText": "页面下拉刷新",

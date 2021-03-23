@@ -99,6 +99,23 @@
     <view class="kg-panel">
       <view class="kg-panel-hd">
         <view class="kg-panel-hd-flag"></view>
+        <view class="kg-panel-hd-title">基础组件</view>
+      </view>
+      <view class="kg-panel-bd kg-bg-color">
+        <view class="kg-cell-box">
+          <view class="kg-cells">
+            <navigator class="kg-cell kg-cell_access" hover-class="kg-cell_active" url="/pagesK/base/form">
+              <view class="kg-cell-content">
+                <view class="kg-cell-content-bd">表单</view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="kg-panel">
+      <view class="kg-panel-hd">
+        <view class="kg-panel-hd-flag"></view>
         <view class="kg-panel-hd-title">示例页面</view>
       </view>
       <view class="kg-panel-bd kg-bg-color">
@@ -147,7 +164,7 @@ export default {
   onShow () {
   },
   methods: {
-  }
+  },
 }
 </script>
 

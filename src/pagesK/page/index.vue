@@ -66,13 +66,13 @@ export default {
 
       groupList: [],
       isScroll: true,
-      scrollInto: ''
+      scrollInto: '',
     }
   },
   computed: {
     currentLetter () {
       return this.letterList[this.currentLetterIndex] || ''
-    }
+    },
   },
   onLoad (options) {
     this.startLetterTop = 0
@@ -82,16 +82,16 @@ export default {
   },
   methods: {
     getData () {
-      let obj = city
-      let letterList = Object.keys(obj)
+      const obj = city
+      const letterList = Object.keys(obj)
       letterList.unshift('search')
       this.letterList = letterList
 
-      let list = []
-      for (let k in obj) {
+      const list = []
+      for (const k in obj) {
         list.push({
           letter: k,
-          list: obj[k]
+          list: obj[k],
         })
       }
       this.groupList = list
@@ -100,7 +100,7 @@ export default {
       })
     },
     initData () {
-      const query = wx.createSelectorQuery().in(this)
+      const query = uni.createSelectorQuery().in(this)
       // 获取第一个字母top
       query.select('#startLetter').boundingClientRect((res) => {
         this.startLetterTop = res.top
@@ -121,8 +121,8 @@ export default {
       if (this.touchStatus) {
         return
       }
-      let scrollTop = e.detail.scrollTop
-      var groupListHeight = this.groupListHeight
+      const scrollTop = e.detail.scrollTop
+      const groupListHeight = this.groupListHeight
       // 滚动到顶部
       if (scrollTop <= 0) {
         this.currentLetterIndex = 0
@@ -130,9 +130,9 @@ export default {
         return
       }
       // 中间部分滚动
-      for (var i = 0; i < groupListHeight.length - 1; i++) {
-        var height1 = groupListHeight[i].top
-        var height2 = groupListHeight[i + 1].top || 0
+      for (let i = 0; i < groupListHeight.length - 1; i++) {
+        const height1 = groupListHeight[i].top
+        const height2 = groupListHeight[i + 1].top || 0
         if (!height2 || (scrollTop >= height1 && scrollTop < height2)) {
           this.currentLetterIndex = i
           this.currentGroupIndex = i
@@ -169,7 +169,7 @@ export default {
         }, 0)
         // 滚动的位置是右侧字母表选择的位置，与getGroupIndex无关，getGroupIndex只是吸顶字母的下标，高度过小时
         this.scrollInto = this.currentLetter
-        wx.vibrateShort()
+        uni.vibrateShort()
       }
     },
     onTouchEnd () {
@@ -182,7 +182,7 @@ export default {
 
     getGroupIndex1 (index) {
       // 吸顶字母需要判断，高度过小时，需要重新选择
-      let endIndex = this.letterList.length - 1
+      const endIndex = this.letterList.length - 1
       let h = 0
       for (let i = index; i <= endIndex; i++) {
         h += this.groupListHeight[i].height
@@ -202,7 +202,7 @@ export default {
     },
     getGroupIndex (index) {
       // 吸顶字母需要判断，高度过小时，需要重新选择
-      let endIndex = this.letterList.length - 1
+      const endIndex = this.letterList.length - 1
       let h = 0
       for (let i = endIndex; i >= 0; i--) {
         h += this.groupListHeight[i].height
@@ -214,8 +214,8 @@ export default {
         }
       }
       return 0
-    }
-  }
+    },
+  },
 }
 </script>
 
