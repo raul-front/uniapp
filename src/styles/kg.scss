@@ -509,6 +509,67 @@
   }
 }
 
+// 上传图片
+.kg-uploader-image{
+  display: flex;
+  flex-wrap: wrap;
+  &-item{
+    width: 160rpx;
+    height: 160rpx;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+    position: relative;
+    background-color: $uni-bg-color-grey;
+    &:nth-child(4n+0){
+      margin-right: 0;
+    }
+    &-img{
+      width: 100%;
+      height: 100%;
+      border-radius: 16rpx;
+    }
+    &-delete {
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: -8px;
+      top: -8px;
+      // color: $uni-text-color-grey;
+      background-color: $uni-bg-color;
+      border-radius: 10px;
+      @include flex-center();
+      .uni-icons{
+        color: $uni-text-color-grey !important;
+      }
+    }
+  }
+  &-item_input{
+    @include flex-center();
+    border-radius: 16rpx;
+    .uni-icons{
+      color: $uni-text-color-grey !important;
+    }
+    &:active{
+      border-color: $uni-text-color-grey;
+      .uni-icons{
+        font-weight: bold;
+      }
+    }
+  }
+  .kg-uploader-image_one-file-item{
+    @include flex-center(column);
+    margin-bottom: 20rpx;
+    .kg-uploader-image-item{
+      margin-bottom: 10rpx;
+    }
+    .kg-uploader-image_one-file-item-title{
+      width: 180rpx;
+      padding: 0 30rpx 10rpx 10rpx;
+      text-align: center;
+    }
+  }
+}
 
 .kg-full{
   width: 100%;

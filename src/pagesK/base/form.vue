@@ -69,7 +69,7 @@
           <view class="kg-form-cell kg-form-cell_required">
             <view class="kg-form-cell-label">研究方向</view>
             <view class="kg-form-cell-content">
-              <kg-form-picker class="kg-form-picker" v-model="form.direction" :list="directionList" :hasLabel="false"></kg-form-picker>
+              <kg-form-picker class="kg-form-picker" v-model="form.direction" :list="directionList" :has-label="false"></kg-form-picker>
             </view>
           </view>
           <view class="kg-form-cell kg-form-cell_required">
@@ -88,28 +88,28 @@
             <view class="kg-form-cell-unit">元</view>
           </view>
 
-          <!-- <view class="kg-form-cell">
+          <view class="kg-form-cell">
             <view class="kg-form-cell-label">证件类型</view>
             <view class="kg-form-cell-content">
-              <select-cardtype class="kg-form-picker" v-model="form.cardType"></select-cardtype>
+              <kg-form-picker class="kg-form-picker" v-model="form.cardType" :list="cardTypeList"></kg-form-picker>
             </view>
-          </view> -->
+          </view>
 
           <!-- 地区选择 -->
-          <!-- <view class="kg-form-cell">
+          <view class="kg-form-cell">
             <view class="kg-form-cell-label">户籍</view>
             <view class="kg-form-cell-content">
-              <select-region class="kg-form-picker" v-model="form.region"></select-region>
+              <kg-form-picker-region class="kg-form-picker" v-model="form.region"></kg-form-picker-region>
             </view>
-          </view> -->
+          </view>
 
           <!-- 日期选择器 -->
-          <!-- <view class="kg-form-cell kg-form-cell_required">
+          <view class="kg-form-cell kg-form-cell_required">
             <view class="kg-form-cell-label">生日</view>
             <view class="kg-form-cell-content">
-              <select-date class="kg-form-picker" v-model="form.time"></select-date>
+              <kg-form-picker-date class="kg-form-picker" v-model="form.time"></kg-form-picker-date>
             </view>
-          </view> -->
+          </view>
 
           <!-- 失焦后将空值转成字符串 '无' -->
           <view class="kg-form-cell kg-form-cell_required">
@@ -123,14 +123,14 @@
           <view class="kg-form-cell kg-form-cell_label-top kg-form-cell_required">
             <view class="kg-form-cell-label">个人爱好</view>
             <view class="kg-form-cell-content">
-              <kg-form-checkbox-group v-model="form.checkbox" :list=checkboxList></kg-form-checkbox-group>
+              <kg-form-checkbox-group v-model="form.checkbox" :list="checkboxList"></kg-form-checkbox-group>
             </view>
           </view>
 
           <view class="kg-form-cell kg-form-cell_label-top kg-form-cell_required">
             <view class="kg-form-cell-label">学历</view>
             <view class="kg-form-cell-content">
-              <kg-form-radio-group  v-model="form.radio" :list=redioList></kg-form-radio-group>
+              <kg-form-radio-group  v-model="form.radio" :list="redioList"></kg-form-radio-group>
             </view>
           </view>
 
@@ -151,20 +151,20 @@
           </view>
 
           <!-- 多图上传 -->
-          <!-- <view class="kg-form-cell__label kg-form-cell_required">
+          <view class="kg-form-cell__label kg-form-cell_required">
             <text class="kg-form-cell__label-title">生活照</text>
             <text class="kg-form-cell__label-desc">最多5张图片</text>
           </view>
           <view class="kg-form-cell__image">
-            <upload-many-image :count="8" v-model="form.images"></upload-many-image>
-          </view> -->
+            <kg-upload-many-image :count="8" v-model="form.images"></kg-upload-many-image>
+          </view>
 
           <!-- 单张图片上传 -->
-          <!-- <view class="kg-form-cell__label kg-form-cell_required">身份证照片</view>
+          <view class="kg-form-cell__label kg-form-cell_required">身份证照片</view>
           <view class="kg-form-cell__image kg-uploader-image">
-            <upload-one-image v-for="(item, index) in form.oneImages" :key="index"
-              v-model="item.image" :title="item.title" :width="320" :hieght="200"></upload-one-image>
-          </view> -->
+            <kg-upload-one-image v-for="(item, index) in form.oneImages" :key="index"
+              v-model="item.image" :title="item.title" :width="320" :hieght="200"></kg-upload-one-image>
+          </view>
 
           <!-- 特别条款 -->
           <view class="kg-form-cell__obey kg-border-bottom-no">
@@ -198,17 +198,9 @@
 
 */
 
-// import SelectDate from '@/lisa/components/form/select-date'
-// import SelectCardtype from '@/lisa/components/form/select-cardtype'
-// import SelectRegion from '@/lisa/components/form/select-region'
-// import FxCheckboxGroup from '@/lisa/components/form/kg-checkbox-group'
-// import FxRadioGroup from '@/lisa/components/form/kg-radio-group'
-// import FxPicker from '@/lisa/components/form/kg-picker'
-// import uploadManyImage from '@/lisa/components/form/upload-many-image'
-// import uploadOneImage from '@/lisa/components/form/upload-one-image'
-
-import { copy, filter, showToast, showToastSuccess, showToastError, showConfirmBack } from '@/utils/func'
+import { copy, filter, constDataToArray, showToast, showToastSuccess, showToastError, showConfirmBack } from '@/utils/func'
 import validate from '@/utils/validate'
+import { cardTypeData } from '@/filter/const'
 
 export default {
   name: 'register-index-index',
@@ -217,15 +209,16 @@ export default {
       interval: 0,
       primaryColor: this.config.primaryColor,
       submitBtnLoading: false,
+      cardTypeList: constDataToArray(cardTypeData),
       redioList: [
-        { label: '本科', value: '4' },
-        { label: '专科', value: '3' },
-        { label: '研究生', value: '5' },
+        { label: '专科', value: 3 },
+        { label: '本科', value: 4 },
+        { label: '研究生', value: 5 },
       ],
       checkboxList: [
-        { label: '读书', value: '1' },
-        { label: '足球', value: '2' },
-        { label: '篮球', value: '3' },
+        { label: '读书', value: 11 },
+        { label: '足球', value: 12 },
+        { label: '篮球', value: 13 },
       ],
       directionList: ['前端', '后端', '运维', '数据分析'],
       specialtyList: [
@@ -235,18 +228,18 @@ export default {
       ],
       form: {
         name: 'jianguo',
-        age: '24',
+        age: 24,
         email: '111@qq.com',
         phone: '18919015125',
         code: '',
         direction: '运维',
         specialty: '',
         money: '',
-        cardType: 'A',
+        cardType: '0',
         region: [],
         time: '',
         remark: '',
-        checkbox: ['2'],
+        checkbox: [2],
         radio: '',
         desc: '',
         obey: true,
@@ -259,7 +252,7 @@ export default {
           'https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg',
         ],
         oneImages: [
-          { title: '身份证正面照', image: '' },
+          { title: '身份证正面照', image: 'https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg' },
           { title: '身份证反面照', image: '' },
         ],
       },
@@ -299,6 +292,7 @@ export default {
         { key: 'card2', label: '身份证反面照 ', type: 'image' },
       ]
       // console.log(this.func.console(data))
+      console.log(data)
 
       const res = validate(data, rules)
       if (res) {

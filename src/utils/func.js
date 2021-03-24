@@ -131,7 +131,7 @@ export const showToastSuccess = text => {
  * @return {void}
  */
 export const showToastError = text => {
-  uni.showToast({ title: text, image: '@/static/images/icons/error.png', duration: 2000 })
+  uni.showToast({ title: text, image: '/static/images/icons/error.png', duration: 2000 })
 }
 
 /** *************** http请求结果提示相关 *************** **/
